@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <title>YGO-real</title>
+    <link rel="stylesheet" href="./YGOstyle.css">
+</head>
+<body>
+
+<div id="background" class="container">
+    <ul class="magic_red" id="magicRed">
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_1"></a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_2"></a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_3"> </a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_4"></a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_5"></a ></li>
+    </ul>
+    <ul class="monster_red" id="monsterRed">
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_6"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt ="pos_7"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_8"> </a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_9"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_10"></a ></li>
+    </ul>
+     <ul class="monster_middle" id="monsterMiddle">
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_11"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_12"></a ></li>
+    </ul>
+    <ul class="monster_blue" id="monsterBlue">
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_13"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_14"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_15"> </a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_16"></a ></li>
+            <li class="card" type="monster"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_17"></a ></li>
+    </ul>
+    <ul class="magic_blue" id="magicBlue">
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_18"></a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_19"></a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_20"> </a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_21"></a ></li>
+            <li class="card" type="magic"><a href = “” target='_blank' ><img src="./resources/76103404.jpg" alt="pos_22"></a ></li>
+    </ul>
+
+</div>
+
+<video autoplay loop muted>
+  <source src="./resources/background.mp4" type="video/mp4"  />
+Your browser does not support the video tag.
+</video>
+
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy-2.6.6.min.js"></script>
+<script type="text/javascript">
+
+    let card1 = document.getElementsByTagName("img");//读取第六个img标签的内容
+    for (i = 0; i < card1.length; i++) {
+    card1[i].style.visibility= "hidden";//修改可视化
+    }
+
+
+
+    function card(mess){
+    timestamp = (new Date()).getTime();
+    let pos = mess.substring(0,2);
+    let length_card = mess.length;
+
+    if(pos[0]==0){
+    pos = pos[1];
+
+    }
+    let card = document.getElementsByTagName("img")[pos];
+    let card_contain = document.getElementsByTagName("a")[pos];
+    if(mess[2]==0){
+        card.style.visibility= "hidden";
+
+    }
+    else{
+        if(card.src!=("./resources/"+mess.substring(4,length_card)+".jpg")){
+
+            card.src ="./resources/"+mess.substring(4,length_card)+".jpg"+ '?_=' + timestamp;//把图片修改为目标图片
+            card.style.visibility= "visible";
+            card_contain.href = "https://www.ourocg.cn/search/" + mess.substring(4,length_card) + "/";
+
+            if(mess[3]==0){
+             card.style.transform = 'rotate(90deg)';//旋转90°，此代码需后续移动至其他地方
+
+            }
+
+            if(mess[3]==1){
+             card.style.transform = 'rotate(0deg)';//旋转90°，此代码需后续移动至其他地方
+
+            }
+
+
+        }
+    }
+}
+
+
+    let goEasy = GoEasy.getInstance({
+        host:'hangzhou.goeasy.io',
+        appkey: "BC-af75f53b36a8449498ab18fc268d4d41",
+        modules: ['pubsub']
+    });
+
+    goEasy.connect({
+        onSuccess: function () {
+            console.log("GoEasy connect successfully.")
+        },
+        onFailed: function (error) {
+            console.log("Failed to connect GoEasy, code:"+error.code+ ",error:"+error.content);
+        }
+    });
+
+    goEasy.pubsub.subscribe({
+        channel: "test_channel",
+        onMessage: function (message) {
+            console.log("Channel:" + message.channel + " content:" + message.content);
+            card(message.content);
+        },
+        onSuccess: function () {
+            console.log("Channel订阅成功。");
+        },
+        onFailed: function (error) {
+            console.log("Channel订阅失败, 错误编码：" + error.code + " 错误信息：" + error.content)
+        }
+    });
+
+
+</script>
+</body>
+</html>
