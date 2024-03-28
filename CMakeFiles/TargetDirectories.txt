@@ -1,0 +1,3 @@
+/home/kylin/YGO_final/CMakeFiles/edit_cache.dir
+/home/kylin/YGO_final/CMakeFiles/rebuild_cache.dir
+/home/kylin/YGO_final/CMakeFiles/YGO.dir
