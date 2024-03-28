@@ -6,7 +6,9 @@
 
 ## 效果
 
-![image-20240328211037779](C:\Users\mypc\Desktop\飞腾cup\CICC3244+天府旅游团+0414\软件源代码\assets\image-20240328211037779.png)
+![image-20240328211037779](.\assets\image-20240328211037779.png)
+
+
 
 目前额外怪兽区域、墓地、额外卡组、除外区、卡组等因为摄像头像素原因还有待开发。
 
@@ -16,11 +18,11 @@
 
 ## 识别原理
 
-![image-20240328211118155](C:\Users\mypc\Desktop\飞腾cup\CICC3244+天府旅游团+0414\软件源代码\assets\image-20240328211118155.png)
+![image-20240328211118155](.\assets\image-20240328211118155.png)
 
-![image-20240328211151050](C:\Users\mypc\Desktop\飞腾cup\CICC3244+天府旅游团+0414\软件源代码\assets\image-20240328211151050.png)
+![image-20240328211151050](.\assets\image-20240328211151050.png)
 
-![image-20240328211220067](C:\Users\mypc\Desktop\飞腾cup\CICC3244+天府旅游团+0414\软件源代码\assets\image-20240328211220067.png)
+![image-20240328211220067](.\assets\image-20240328211220067.png)
 
 ## 代码版本分布及注意事项
 
